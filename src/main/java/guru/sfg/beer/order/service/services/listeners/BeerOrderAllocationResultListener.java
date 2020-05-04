@@ -18,6 +18,7 @@ public class BeerOrderAllocationResultListener {
 
     @JmsListener(destination = JmsConfig.ALLOCATE_ORDER_RESPONSE_QUEUE)
     public void listener(AllocateOrderResult result){
+        log.debug("*********** checking for allocation **********");
         if(!result.getAllocationError() && !result.getInventoryPending()){
             //normal allocation
             beerOrderManager.beerOrderAllocationPassed(result.getBeerOrderDto());
