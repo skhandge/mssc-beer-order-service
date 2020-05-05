@@ -23,7 +23,7 @@ public class BeerOrderValidationListener {
         ValidateOrderRequest request = (ValidateOrderRequest) msg.getPayload();
 
         if(request.getBeerOrderDto().getCustomerRef()!=null &&
-                request.getBeerOrderDto().getCustomerRef().equalsIgnoreCase("validation-fail"))
+                request.getBeerOrderDto().getCustomerRef().equalsIgnoreCase("fail-validation"))
         {
             isValid=false;
         }
